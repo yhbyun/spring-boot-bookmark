@@ -16,6 +16,9 @@
   - Application startup successful (`mvn spring-boot:run`).
   - Database connection verified (Tables created automatically).
   - Hello World endpoints verified.
+  - **Bookmark API Verified**:
+    - POST `/api/bookmarks`: Successfully created a bookmark.
+    - GET `/api/bookmarks`: Successfully retrieved the created bookmark.
 
 ## How to Run
 1. Ensure MySQL is running.
@@ -29,6 +32,19 @@
    - **Bookmarks**:
      - GET `http://localhost:8080/api/bookmarks`
      - POST `http://localhost:8080/api/bookmarks`
+
+## API Testing Examples
+### Create a Bookmark (POST)
+```bash
+curl -X POST http://localhost:8080/api/bookmarks \
+    -H "Content-Type: application/json" \
+    -d '{"title": "Google", "url": "https://www.google.com", "description": "Search Engine"}'
+```
+
+### Get All Bookmarks (GET)
+```bash
+curl http://localhost:8080/api/bookmarks
+```
 
 ## Troubleshooting
 - If you see `Unable to determine Dialect`, ensure `spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect` is present in `application.properties`.
