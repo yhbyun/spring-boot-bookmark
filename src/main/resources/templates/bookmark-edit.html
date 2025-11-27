@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Bookmark</title>
+    <style>
+        body {font-family: Arial, sans-serif; margin: 20px;}
+        .form-container {background-color: #f9f9f9; padding: 20px; border-radius: 5px;}
+        input[type=text], input[type=url] {width: 100%; padding: 12px 20px; margin: 8px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;}
+        button {width: 100%; background-color: #4CAF50; color: white; padding: 14px 20px; margin: 8px 0; border: none; border-radius: 4px; cursor: pointer;}
+        button:hover {background-color: #45a049;}
+    </style>
+</head>
+<body>
+    <h2>Edit Bookmark</h2>
+    <div class="form-container">
+        <form th:action="@{/bookmarks/edit}" th:object="${bookmark}" method="post">
+            <input type="hidden" th:field="*{id}" />
+            <label for="title">Title</label>
+            <input type="text" id="title" th:field="*{title}" placeholder="Site Name" required />
+
+            <label for="url">URL</label>
+            <input type="url" id="url" th:field="*{url}" placeholder="https://example.com" required />
+
+            <label for="description">Description</label>
+            <input type="text" id="description" th:field="*{description}" placeholder="Description..." />
+
+            <button type="submit">Update Bookmark</button>
+        </form>
+    </div>
+</body>
+</html>

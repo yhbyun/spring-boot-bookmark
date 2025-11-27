@@ -44,6 +44,7 @@
                 <th>URL</th>
                 <th>Description</th>
                 <th>Created At</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -53,9 +54,13 @@
                 <td><a th:href="${bookmark.url}" th:text="${bookmark.url}" target="_blank">https://example.com</a></td>
                 <td th:text="${bookmark.description}">Description here</td>
                 <td th:text="${#temporals.format(bookmark.createdAt, 'yyyy-MM-dd HH:mm')}">2025-11-27 10:00</td>
+                <td>
+                    <a th:href="@{/bookmarks/edit/{id}(id=${bookmark.id})}">Edit</a>
+                    <a th:href="@{/bookmarks/delete/{id}(id=${bookmark.id})}" onclick="return confirm('Are you sure you want to delete this bookmark?');">Delete</a>
+                </td>
             </tr>
             <tr th:if="${#lists.isEmpty(bookmarks)}">
-                <td colspan="5" style="text-align: center;">No bookmarks found. Add one above!</td>
+                <td colspan="6" style="text-align: center;">No bookmarks found. Add one above!</td>
             </tr>
         </tbody>
     </table>

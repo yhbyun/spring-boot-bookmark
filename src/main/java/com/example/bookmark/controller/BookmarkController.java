@@ -23,4 +23,14 @@ public class BookmarkController {
     public Bookmark createBookmark(@RequestBody Bookmark bookmark) {
         return bookmarkService.createBookmark(bookmark);
     }
+
+    @PutMapping("/{id}")
+    public Bookmark updateBookmark(@PathVariable Long id, @RequestBody Bookmark bookmark) {
+        return bookmarkService.updateBookmark(id, bookmark);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteBookmark(@PathVariable Long id) {
+        bookmarkService.deleteBookmark(id);
+    }
 }
