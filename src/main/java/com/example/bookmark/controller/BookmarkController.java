@@ -1,5 +1,6 @@
 package com.example.bookmark.controller;
 
+import com.example.bookmark.aop.Idempotent;
 import com.example.bookmark.entity.Bookmark;
 import com.example.bookmark.service.BookmarkService;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +20,7 @@ public class BookmarkController {
         return bookmarkService.getAllBookmarks();
     }
 
+    @Idempotent
     @PostMapping
     public Bookmark createBookmark(@RequestBody Bookmark bookmark) {
         return bookmarkService.createBookmark(bookmark);
