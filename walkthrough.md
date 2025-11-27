@@ -6,6 +6,7 @@
 - **Repository Layer**: Implemented `BookmarkRepository`.
 - **Service Layer**: Implemented `BookmarkService`.
 - **Web Layer**: Implemented `BookmarkController`.
+- **Learning**: Implemented `HelloController` with text and JSON endpoints.
 - **Database Configuration**:
   - Created `bookmark` database.
   - Configured `application.properties` with MySQL credentials.
@@ -14,6 +15,7 @@
   - Build successful (`mvn clean install`).
   - Application startup successful (`mvn spring-boot:run`).
   - Database connection verified (Tables created automatically).
+  - Hello World endpoints verified.
 
 ## How to Run
 1. Ensure MySQL is running.
@@ -22,8 +24,11 @@
    mvn spring-boot:run
    ```
 3. Access the API:
-   - GET `http://localhost:8080/api/bookmarks`
-   - POST `http://localhost:8080/api/bookmarks`
+   - **Hello World (Text)**: [http://localhost:8080/hello](http://localhost:8080/hello)
+   - **Hello World (JSON)**: [http://localhost:8080/api/hello](http://localhost:8080/api/hello)
+   - **Bookmarks**:
+     - GET `http://localhost:8080/api/bookmarks`
+     - POST `http://localhost:8080/api/bookmarks`
 
 ## Troubleshooting
 - If you see `Unable to determine Dialect`, ensure `spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect` is present in `application.properties`.
